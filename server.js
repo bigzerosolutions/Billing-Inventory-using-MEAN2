@@ -12,7 +12,6 @@ var smtpTransport = require("nodemailer-smtp-transport");
 var port = 'localhost';
 var path = require('path');
 
-
 app.use("/", express.static(path.join(__dirname, 'public')));
 app.use('app-content', express.static(__dirname, + '/app-content'));
 app.use('app-services', express.static(__dirname, + '/app-services'));
