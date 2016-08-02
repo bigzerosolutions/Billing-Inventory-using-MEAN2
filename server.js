@@ -11,7 +11,8 @@ var nodemailer = require("nodemailer");
 var smtpTransport = require("nodemailer-smtp-transport");
 var port = 'localhost';
 var path = require('path');
-//app
+
+
 app.use("/", express.static(path.join(__dirname, 'public')));
 app.use('app-content', express.static(__dirname, + '/app-content'));
 app.use('app-services', express.static(__dirname, + '/app-services'));
@@ -143,6 +144,41 @@ app.put('/updateStock', function(req , res)
     res.json(doc);
   })
 });
+/**************************************** To get fee Installment *********************************/
+
+app.post('/addNewUser/:adminpass', function(req , res) {
+  var uname = req.body.name;
+  var upass = req.body.pass;
+  var adminPass = req.params.adminpass;
+  console.log(adminPass);
+  console.log(req.body);
+  var status = false;
+  db.login.findOne({username : 'admin'}, function(err, doc){
+    if (doc) 
+    {
+      if (doc.password == adminPass) 
+      {
+        db.login.insert(req.body, function(err, doc)
+        {
+        status = true;
+        console.log(status);
+        res.json(status);
+        })
+      }else
+      { 
+        console.log(status);
+        res.json(status);
+      }
+    }
+    else
+    {
+      console.log("No user Found");
+      res.json(status);
+    }
+  })
+});
+/**************************************** To get fee Installment *********************************/
+
 
 app.listen(3000, function () {
   console.log('Example app listening on port !' + '3000');

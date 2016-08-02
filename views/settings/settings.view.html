@@ -13,7 +13,7 @@
             <div class="col-lg-3" align="center" style="background:#fff;opacity:0.9;padding:20px;height:400px">
                 <ul style="padding:0px!important">
                     <li id="adduse" style="list-style:none;padding:10px">
-                        <button style="width:200px" class="btn btn-primary" onclick="adduser()">Add New User</button>
+                        <button style="width:200px" class="btn btn-primary" onclick="adduser()" >Add New User</button>
                     </li>
                     <li id="removeuse" style="list-style:none;padding:10px">
                         <button style="width:200px" class="btn btn-primary" onclick="removeuser()">Remove User</button>
@@ -21,29 +21,67 @@
                     <li id="changeemail" style="list-style:none;padding:10px">
                         <button style="width:200px" class="btn btn-primary">Change Recovery Email</button>
                     </li>
-                    <li id="changepasss" style="list-style:none;padding:10px">
+                    <li id="changepass" style="list-style:none;padding:10px">
                         <button style="width:200px" class="btn btn-primary">Change Password</button>
                     </li>
                 </ul>
             </div>
             <div class="col-lg-9" style="background:#fff;opacity:0.9;padding:20px;height:400px">
                 <div id="Default" style="background:#F1F1F1;height:100%">
-                    <p style="text-align:center;font-size:23px;font-weight:700;">Welcome To Admin Settings</p>
+                    <p style="text-align:center;font-size:36px;font-weight:700;padding-top: 146px;">Welcome To Admin Settings</p>
                    
                 </div>
-                <div id="addUser" style="background:#F1F1F1;display:none;height:100%">
+                <div id="addUser" style="background:#F1F1F1;display:none;height:100%;">
                     <p style="text-align:center;font-size:23px;font-weight:700;">Enter New User Details</p>
+                    <table  class="table" >
+                        <tr>
+                            <td>Enter New Username :</td>
+                            <td><input class="form-control" ng-model="user.name" type="text" name=""></td>
+                        </tr>
+                        <tr>
+                            <td>Enter New Password :</td>
+                            <td><input class="form-control" ng-model="user.password" type="text" name=""></td>
+                        </tr>
+                        <tr>
+                            <td>Enter Admin Password :</td>
+                            <td><input class="form-control" ng-model="adminPass" type="text" name=""></td>
+                        </tr>
+                        <tr>
+                            <td align="center"><button class="btn btn-primary" ng-click="addUser(user)">Add User</button></td>
+                        </tr>               
+                    </table>
+                </div>
+                <div id="removeUser" style="background:#F1F1F1;display:none;height:100%">
+                    <p style="text-align:center;font-size:23px;font-weight:700;">Enter User to delete</p>
                     <table  class="table">
                         <tr>
-                            <td>Enter Username :</td>
+                            <td>Select Username :</td>
+                            <td><select class="form-control"></select></td>
+                        </tr>
+                        <tr>
+                            <td>Enter Admin Password :</td>
                             <td><input class="form-control" type="text" name=""></td>
                         </tr>
                         <tr>
-                            <td>Enter Password :</td>
+                            <td align="center"><button class="btn btn-danger">Delete User</button></td>
+                            <td align="center"><button class="btn btn-warning">Clear</button></td>
+                        </tr>               
+                    </table>
+                </div>
+                <div id="changePass" style="background:#F1F1F1;display:none;height:100%">
+                    <p style="text-align:center;font-size:23px;font-weight:700;">Enter User to delete</p>
+                    <table  class="table">
+                        <tr>
+                            <td>Select Username :</td>
+                            <td><select class="form-control"></select></td>
+                        </tr>
+                        <tr>
+                            <td>Enter Admin Password :</td>
                             <td><input class="form-control" type="text" name=""></td>
                         </tr>
                         <tr>
-                            <td align="center"><button class="btn btn-primary">Add User</button></td>
+                            <td align="center"><button class="btn btn-danger">Delete User</button></td>
+                            <td align="center"><button class="btn btn-warning">Clear</button></td>
                         </tr>               
                     </table>
                 </div>
@@ -62,6 +100,7 @@
                 document.getElementById("addUser").style.display = "block";
                 document.getElementById("adduse").style.background = "#F1F1F1";
                 document.getElementById("Default").style.display = "none";
+                document.getElementById("removeUser").style.display = "none";
             
         }
         else
@@ -71,34 +110,39 @@
                 document.getElementById("Default").style.display = "block";
         }
     }
-
-
-    function toggleDelete()
+    function removeuser()
     {       
-        if(document.getElementById("removep").style.display == "none")
+        if(document.getElementById("removeUser").style.display == "none")
         {
-            document.getElementById("removep").style.display = "block";
-            document.getElementById("updatep").style.display = "none";
-            document.getElementById("addp").style.display = "none";
-        }
-        else
-        {
-                document.getElementById("updatep").style.display = "none";
-                document.getElementById("removep").style.display = "none";
             
-        }
-    }
-    function toggleUpdate()
-    {       
-        if(document.getElementById("updatep").style.display == "none")
-        {
-                document.getElementById("updatep").style.display = "block";
-                document.getElementById("addp").style.display = "none";
-                document.getElementById("removep").style.display = "none";
+                document.getElementById("removeUser").style.display = "block";
+                document.getElementById("removeuse").style.background = "#F1F1F1";
+                document.getElementById("Default").style.display = "none";
+                document.getElementById("addUser").style.display = "none";
         }
         else
         {
-                document.getElementById("updatep").style.display = "none";
+                document.getElementById("removeUser").style.display = "none";
+                document.getElementById("removeuse").style.background = "none";
+                document.getElementById("Default").style.display = "block";
         }
     }
+    function removeuser()
+    {       
+        if(document.getElementById("removeUser").style.display == "none")
+        {
+            
+                document.getElementById("removeUser").style.display = "block";
+                document.getElementById("removeuse").style.background = "#F1F1F1";
+                document.getElementById("Default").style.display = "none";
+                document.getElementById("addUser").style.display = "none";
+        }
+        else
+        {
+                document.getElementById("removeUser").style.display = "none";
+                document.getElementById("removeuse").style.background = "none";
+                document.getElementById("Default").style.display = "block";
+        }
+    }
+
 </script>
