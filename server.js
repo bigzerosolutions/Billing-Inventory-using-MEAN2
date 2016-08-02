@@ -58,6 +58,41 @@ app.post('/login', function(req , res) {
     }
   })
 });
+
+/****************************************** All Product details ***************************************/
+
+app.post('/verifyAdmin', function(req , res) {
+ 
+  var adminpass = req.body.delUser;
+  var username = req.body.username.username;
+  //console.log(req.body);
+  db.login.findOne({username : 'admin'}, function(err, doc){
+    if (doc) 
+    {
+      console.log("hello");
+      console.log(doc.password);
+      if (doc.password == adminpass) 
+      {
+        db.login.remove({username: username}, function(err, doc)
+        {
+          console.log("delted");
+          console.log(doc);
+          res.json(doc);
+        })  
+      }else
+      { 
+        //console.log(doc);
+        res.json(doc);
+      }
+    }
+    else
+    {
+      console.log("No user Found");
+      res.json(doc);
+    }
+  })
+});
+
 /****************************************** All Product details ***************************************/
 
 app.get('/allproducts', function(req , res) 
@@ -178,6 +213,17 @@ app.post('/addNewUser/:adminpass', function(req , res) {
   })
 });
 /**************************************** To get fee Installment *********************************/
+
+app.get('/allUsers', function(req , res) 
+{
+  //console.log("here");
+  db.login.find(function(err, doc)
+  {
+    //console.log(doc);
+    res.json(doc);
+  })  
+});
+
 
 
 app.listen(3000, function () {
