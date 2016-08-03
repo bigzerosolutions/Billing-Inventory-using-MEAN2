@@ -33,7 +33,7 @@
                     <table  class="table" >
                         <tr>
                             <td>Enter New Username :</td>
-                            <td><input class="form-control" ng-model="user.name" type="text" name="" required></td>
+                            <td><input class="form-control" ng-model="user.username" type="text" name="" required></td>
                         </tr>
                         <tr>
                             <td>Enter New Password :</td>
@@ -67,7 +67,7 @@
                         </tr>
                         <tr>
                             <td align="center"><button class="btn btn-danger" ng-click="deleteUser(del)">Delete User</button></td>
-                            <td align="center"><button class="btn btn-warning">Clear</button></td>
+                            <td align="center"><button class="btn btn-warning" ng-click="clearall()">Clear</button></td>
                         </tr>               
                     </table>
                 </div>

@@ -32,9 +32,12 @@
 
             $http.post('/addNewUser/' + $scope.adminPass,userData).success(function(response)
             {
-          		if (response == true) 
+            	console.log(response);
+          		if (response == "true") 
           		{
           			alert("User added successfully");
+          			refresh();
+          			$scope.clearall();
           		}
           		else
           		{
@@ -52,6 +55,8 @@
                 //console.log(response);
                 if(response == "true") 
                 {
+                   console.log("user deleted");
+                   clearall();
                    refresh();
                 }
                 
@@ -62,6 +67,7 @@
     		console.log($scope.user);
             $scope.user="";
             $scope.adminPass="";
+            $scope.del="";
         };
         function refresh()
         {
@@ -73,6 +79,7 @@
                 for(i=0;i<values.length;i++)
                 {
                     $scope.options.push({username:values[i].username});
+                    console.log(values[i]);
                 }    
             });
         }      

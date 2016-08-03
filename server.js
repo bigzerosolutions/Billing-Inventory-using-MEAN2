@@ -65,7 +65,7 @@ app.post('/verifyAdmin', function(req , res) {
  
   var adminpass = req.body.delUser;
   var username = req.body.username.username;
-  //console.log(req.body);
+  console.log(req.body);
   db.login.findOne({username : 'admin'}, function(err, doc){
     if (doc) 
     {
@@ -191,13 +191,13 @@ app.post('/addNewUser/:adminpass', function(req , res) {
   db.login.findOne({username : 'admin'}, function(err, doc){
     if (doc) 
     {
-      if (doc.password == adminPass) 
+      if (doc.password == adminPass)
       {
         db.login.insert(req.body, function(err, doc)
         {
-        status = true;
-        console.log(status);
-        res.json(status);
+          status = true;
+          console.log(status);
+          res.json(status);
         })
       }else
       { 
