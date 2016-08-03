@@ -15,23 +15,6 @@
 
             $http.post('/addNewUser/' + $scope.adminPass,userData).success(function(response)
             {
-          		if (response == true) 
-          		{
-          			alert("User added successfully")
-          		}
-          		else
-          		{
-          			alert("Sorry admin Password is incorrect!")	
-          		}
-            });
-        };
-
-		$scope.addUser = function(userData)
-        {
-        	console.log($scope.adminPass);
-
-            $http.post('/addNewUser/' + $scope.adminPass,userData).success(function(response)
-            {
             	console.log(response);
           		if (response == "true") 
           		{
