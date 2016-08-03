@@ -34,17 +34,17 @@
             {
           		if (response == true) 
           		{
-          			alert("User added successfully")
+          			alert("User added successfully");
           		}
           		else
           		{
-          			alert("Sorry admin Password is incorrect!")	
+          			alert("Sorry admin Password is incorrect!");
           		}
             });
 
             
         }; 
-        $scope.deleteUser = function(del)
+        $scope.deleteUser = function()
     	{
     		console.log($scope.del);
             $http.post('/verifyAdmin',$scope.del).success(function(response)
@@ -56,6 +56,12 @@
                 }
                 
             });
+        };
+        $scope.clearall = function()
+    	{
+    		console.log($scope.user);
+            $scope.user="";
+            $scope.adminPass="";
         };
         function refresh()
         {
