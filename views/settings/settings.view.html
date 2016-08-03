@@ -18,9 +18,6 @@
                     <li id="removeuse" style="list-style:none;padding:10px">
                         <button style="width:200px" class="btn btn-primary" onclick="removeuser()">Remove User</button>
                     </li>
-                    <li id="changeemail" style="list-style:none;padding:10px">
-                        <button style="width:200px" class="btn btn-primary">Change Recovery Email</button>
-                    </li>
                     <li id="changepass" style="list-style:none;padding:10px">
                         <button style="width:200px" class="btn btn-primary">Change Password</button>
                     </li>
@@ -32,38 +29,44 @@
                    
                 </div>
                 <div id="addUser" style="background:#F1F1F1;display:none;height:100%;">
-                    <p style="text-align:center;font-size:23px;font-weight:700;">Enter New User Details</p>
+                    <p style="text-align:center;font-size:23px;font-weight:700;padding:20px 10px">Enter New User Details</p>
                     <table  class="table" >
                         <tr>
                             <td>Enter New Username :</td>
-                            <td><input class="form-control" ng-model="user.name" type="text" name=""></td>
+                            <td><input class="form-control" ng-model="user.name" type="text" name="" required></td>
                         </tr>
                         <tr>
                             <td>Enter New Password :</td>
-                            <td><input class="form-control" ng-model="user.password" type="text" name=""></td>
+                            <td><input class="form-control" ng-model="user.password" type="text" name="" required></td>
                         </tr>
                         <tr>
                             <td>Enter Admin Password :</td>
-                            <td><input class="form-control" ng-model="adminPass" type="text" name=""></td>
+                            <td><input class="form-control" ng-model="adminPass" type="text" name="" required></td>
                         </tr>
                         <tr>
-                            <td align="center"><button class="btn btn-primary" ng-click="addUser(user)">Add User</button></td>
-                        </tr>               
+                            <td align="center" ><button class="btn btn-primary" ng-click="addUser(user)" style="width:150px;margin-top:15px">Add User</button></td>
+                            <td align="center" ><button class="btn btn-primary" ng-click="clearall()" style="width:150px;margin-top:15px">Clear All</button></td>
+                        </tr> 
+                                  
                     </table>
                 </div>
                 <div id="removeUser" style="background:#F1F1F1;display:none;height:100%">
-                    <p style="text-align:center;font-size:23px;font-weight:700;">Enter User to delete</p>
+                    <p style="text-align:center;font-size:23px;font-weight:700;">Select user to delete</p>
                     <table  class="table">
                         <tr>
                             <td>Select Username :</td>
-                            <td><select class="form-control"></select></td>
+                            <td>
+                                <select class="form-control"  ng-model="del.username" ng-options="o.username for o in options" name="users name"  required="" >
+                                    <option selected disabled>Choose here</option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td>Enter Admin Password :</td>
-                            <td><input class="form-control" type="text" name=""></td>
+                            <td><input class="form-control" ng-model="del.delUser" type="text" name="" required></td>
                         </tr>
                         <tr>
-                            <td align="center"><button class="btn btn-danger">Delete User</button></td>
+                            <td align="center"><button class="btn btn-danger" ng-click="deleteUser(del)">Delete User</button></td>
                             <td align="center"><button class="btn btn-warning">Clear</button></td>
                         </tr>               
                     </table>
@@ -73,7 +76,11 @@
                     <table  class="table">
                         <tr>
                             <td>Select Username :</td>
-                            <td><select class="form-control"></select></td>
+                            <td>
+                                <select class="form-control"  ng-change="removeUser()" ng-model="select.user" ng-options="o.user for o in options" required="" >
+                                    <option selected >Choose here</option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td>Enter Admin Password :</td>
@@ -100,6 +107,7 @@
                 document.getElementById("addUser").style.display = "block";
                 document.getElementById("adduse").style.background = "#F1F1F1";
                 document.getElementById("Default").style.display = "none";
+                document.getElementById("removeuse").style.background = "none";
                 document.getElementById("removeUser").style.display = "none";
             
         }
@@ -114,28 +122,12 @@
     {       
         if(document.getElementById("removeUser").style.display == "none")
         {
-            
                 document.getElementById("removeUser").style.display = "block";
                 document.getElementById("removeuse").style.background = "#F1F1F1";
                 document.getElementById("Default").style.display = "none";
                 document.getElementById("addUser").style.display = "none";
-        }
-        else
-        {
-                document.getElementById("removeUser").style.display = "none";
-                document.getElementById("removeuse").style.background = "none";
-                document.getElementById("Default").style.display = "block";
-        }
-    }
-    function removeuser()
-    {       
-        if(document.getElementById("removeUser").style.display == "none")
-        {
-            
-                document.getElementById("removeUser").style.display = "block";
-                document.getElementById("removeuse").style.background = "#F1F1F1";
-                document.getElementById("Default").style.display = "none";
-                document.getElementById("addUser").style.display = "none";
+                document.getElementById("adduse").style.background = "none";
+                
         }
         else
         {
