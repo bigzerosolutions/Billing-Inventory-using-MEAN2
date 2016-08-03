@@ -6,7 +6,7 @@
         .controller('LoginController', LoginController);
 
     LoginController.$inject = ['$location','$scope','$http'];
-    function LoginController($location,$scope,$http,$cookieStore) {
+    function LoginController($location,$scope,$http) {
        $scope.login = function()
         {  
             
