@@ -3,6 +3,7 @@
 		<!-- <p style="color:#fff;font-size:38px;padding-left:3%;font-weight:700">Hi {{vm.username}}!</p>
 		 -->
 		 <p align="right" style=""><a href="#/login" class="btn btn-primary">Logout</a></p></br>
+		 <p style="font-size:50px;color:#428BCA;margin:10px" >Hi {{vm.username}} !</p>
 		 <div class="row" style="padding-top:8%">
 			<div class="col-lg-5 selectDiv " align="center" ng-click="vm.newInvoice()">
 				<h1><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp; New Invoice &nbsp;&nbsp;<i class="fa fa-shopping-cart" aria-hidden="true"></i></h1>
@@ -17,10 +18,14 @@
 				<h1><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp; View Invoices &nbsp;&nbsp;<i class="fa fa-print" aria-hidden="true"></i></h1>
 			</div>
 			<div class="col-lg-2"></div>
-			<div class="col-lg-5 selectDiv" align="center" ng-click="vm.settings()">
+			<div ng-hide="divEnabled" id="settingDiv" class="col-lg-5 selectDiv" align="center" ng-click="vm.settings()">
 				<h1><i class="fa fa-arrow-right" aria-hidden="true"></i>&nbsp;&nbsp; App Settings &nbsp;&nbsp;<i class="fa fa-cogs" aria-hidden="true"></i></h1>
 			</div>
 		</div>
 	</div>
-
+<input id="userdta" type="text" name="" ng-bind="uservalue" style="">
+		 
 </div>
+<script>
+	
+</script>

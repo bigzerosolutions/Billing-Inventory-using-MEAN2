@@ -23,7 +23,7 @@
 						<th style="padding:5px;border:1px solid" width="146"> Client Contact </th>
 						<th style="padding:5px;border:1px solid" width="138"> Total Amount </th>
 						<th style="padding:5px;border:1px solid" width="300"> Note </th>
-						<th style="padding:5px;border:1px solid" width="122"> Action </th>
+						<th ng-hide="actionth" style="padding:5px;border:1px solid" width="122"> Action </th>
 					</tr>
 				</table>
 			</div>
@@ -38,7 +38,7 @@
 						<td style="padding:5px;border:1px solid" width="146">{{invoice.clientContact}}</td>
 						<td style="padding:5px;border:1px solid" width="138">{{invoice.totalAmount}}</td>
 						<td style="padding:5px;border:1px solid" width="300">{{invoice.note}}</td>
-						<td style="padding:5px;border:1px solid" align="center" width="122"><button class="btn btn-danger" ng-click="removeInvoice(invoice.invoiceNo)">Remove</button></td>
+						<td ng-hide="actiontd" style="padding:5px;border:1px solid" align="center" width="122"><button class="btn btn-danger" ng-click="removeInvoice(invoice.invoiceNo)">Remove</button></td>
 					</tr>
 				</table>
 				
