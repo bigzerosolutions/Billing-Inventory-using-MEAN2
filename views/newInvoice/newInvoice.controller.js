@@ -67,7 +67,7 @@
                 product.pTotal = product.pCost * product.pQty;
                 $scope.pNos = $scope.pNos +1;
                 $scope.selected.items.push({nos:$scope.pNos,pName:product.pName,pCompany:$scope.vm.pCompany,pDesc:$scope.vm.pDesc,pCost:product.pCost,pStock:$scope.vm.pStock,pQty:product.pQty,pTax:product.pTax,pTotal:product.pTotal});
-                $scope.tot= product.pCost + $scope.tot; 
+                $scope.tot= product.pTotal + $scope.tot; 
         
                 //console.log(product.pCost);
 
