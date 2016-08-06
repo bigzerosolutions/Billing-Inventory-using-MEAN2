@@ -19,7 +19,7 @@
                         <button style="width:200px" class="btn btn-primary" onclick="removeuser()">Remove User</button>
                     </li>
                     <li id="changepass" style="list-style:none;padding:10px">
-                        <button style="width:200px" class="btn btn-primary">Change Password</button>
+                        <button style="width:200px" class="btn btn-primary" >Change Password</button>
                     </li>
                 </ul>
             </div>
@@ -37,11 +37,11 @@
                         </tr>
                         <tr>
                             <td>Enter New Password :</td>
-                            <td><input class="form-control" ng-model="user.password" type="text" name="" required></td>
+                            <td><input class="form-control" ng-model="user.password" type="password" name="" required></td>
                         </tr>
                         <tr>
                             <td>Enter Admin Password :</td>
-                            <td><input class="form-control" ng-model="adminPass" type="text" name="" required></td>
+                            <td><input class="form-control" ng-model="adminPass" type="password" name="" required></td>
                         </tr>
                         <tr>
                             <td align="center" ><button class="btn btn-primary" ng-click="addUser(user)" style="width:150px;margin-top:15px">Add User</button></td>
@@ -63,7 +63,7 @@
                         </tr>
                         <tr>
                             <td>Enter Admin Password :</td>
-                            <td><input class="form-control" ng-model="del.delUser" type="text" name="" required></td>
+                            <td><input class="form-control" ng-model="del.delUser" type="password" name="" required></td>
                         </tr>
                         <tr>
                             <td align="center"><button class="btn btn-danger" ng-click="deleteUser(del)">Delete User</button></td>
@@ -84,7 +84,7 @@
                         </tr>
                         <tr>
                             <td>Enter Admin Password :</td>
-                            <td><input class="form-control" type="text" name=""></td>
+                            <td><input class="form-control" type="paswword" name=""></td>
                         </tr>
                         <tr>
                             <td align="center"><button class="btn btn-danger">Delete User</button></td>

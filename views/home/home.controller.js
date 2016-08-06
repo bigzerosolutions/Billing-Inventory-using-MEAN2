@@ -12,7 +12,17 @@
         vm.allProducts = allProducts;
         vm.allInvoices = allInvoices;
         vm.settings = settings;
-        
+        vm.username = $rootScope.globals.currentUser.username;
+        if(vm.username == "admin")
+        {
+            $rootScope.divEnabled = false;
+        }
+        else
+        {
+            $rootScope.divEnabled = true;
+        }
+
+        console.log(vm.username);
         function newInvoice() 
         {
             $location.path('/newInvoice');
