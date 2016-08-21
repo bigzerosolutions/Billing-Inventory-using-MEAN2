@@ -1,9 +1,8 @@
-
-var port = process.env.PORT || 3000; 
+var port = process.env.PORT || 5000; 
 var express = require('express');
 var app = express();
 var mongojs = require('mongojs');
-var db = mongojs('billDB',['login']);
+var db = mongojs('test',['login']);
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
@@ -226,8 +225,8 @@ app.get('/allUsers', function(req , res)
 
 
 
-app.listen(3000, function () {
-  console.log('Example app listening on port !' + '3000');
+app.listen(5000, function () {
+  console.log('Example app listening on port !' + port);
 });
 
 
